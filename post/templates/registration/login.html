@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style_game.css' %}">
+</head>
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo mr-auto"><a href="{% url 'index' %}">GamePeek</a></h1>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'index' %}">Inicio</a></li>
+          {% if user.is_authenticated %}
+            {% if user.is_authenticated and user.is_staff %}
+              <li><a href="{% url 'agregar' %}">Agregar Juegos</a></li>
+            {% endif %}
+            <li>
+              <button id="toggleCartBtn" class="btn btn-light cart-button">
+                <img src="{% static 'img/carrito.png' %}" alt="Carrito de compras">
+              </button>
+          </li>
+            </a>
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-danger">Cerrar sesion</button>
+            </form>
+            <p class="username">{{user.username}}</p>
+          {% else %}
+            <a href="{% url 'register' %}" class="btn btn-outline-success">Registrarse</a>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+<body>
+  <div class="container-registration">
+    {% if not user.is_authenticated %}
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        <p>¿No tienes una cuenta? <a href="{% url 'register' %}">Registrarse</a></p>
+    </div>
+    {% else %}
+    <h1>¡Ya estás logueado! >:v</h1>
+    {% endif %}
+</div>
+</body>
+</html>

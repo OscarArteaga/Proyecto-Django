@@ -1,0 +1,446 @@
+
+
+body {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0;
+    min-height: 100vh;
+    padding-top: 72px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+#header{
+    background: rgb(21, 15, 64);
+    padding: 15px;
+    margin-left: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#header .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+#header .nav-menu {
+    margin-left: auto; 
+}
+
+#header .nav-menu p{
+    font-size: 24px;
+    font-family: fantasy;
+    margin: 0;
+    padding-left: 24px;
+    color: white;
+}
+
+#header .nav-menu form{
+    font-size: large;
+    color: aliceblue;
+    padding-left: auto;
+    padding-top: auto;
+    line-height: 1;
+    padding-bottom: auto;
+    display: inline-block;
+    margin-left: 20px; 
+}
+
+#header .logo{
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#header .logo a{
+    color: rgb(255, 255, 255);
+}
+
+
+.cart-button {
+    width: 50px; 
+    height: 50px; 
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+.nav-menu ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu > ul{
+    display: flex;
+}
+
+.nav-menu > ul > li {
+    position: relative;
+    white-space: nowrap;
+    padding: 10px 0 10px 22px;
+}
+
+.nav-menu a{
+    display: block;
+    position: relative;
+    color: rgba(255, 255, 255, 0.7);
+    transition: 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    padding: 0 4px;
+    text-transform: uppercase;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start center;
+    gap: 10px;
+    padding: 20px;
+    padding-top: 50px;
+    margin-left: 55px;
+}
+
+.card {
+    background-color: black; 
+    width: 160px; 
+    max-width: 200px; 
+    height: 340px; 
+    max-height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 50%; 
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card-price {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 15px;
+    flex-grow: 1; 
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    margin-top: auto;
+}
+
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+body h1{
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding-bottom: 10px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.list-group-item img{
+    margin-top: 5px;
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+    border-radius: 5px; 
+    margin-right: 10px; 
+}
+
+.list-group-item span{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container-registration{
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.login-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container form input[type="text"],
+.login-container form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.login-container form button[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login-container form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.login-container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-container p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container p a:hover {
+    text-decoration: underline;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.container-register {
+    width: 700px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.container-register h2 {
+    text-align: center;
+}
+.container-register form {
+    display: flex;
+    flex-direction: column;
+}
+.container-register form input[type="text"],
+.container-register form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+.container-register form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.container-register form button:hover {
+    background-color: #0056b3;
+}
+.container-register p {
+    text-align: center;
+    margin-top: 10px;
+}
+.container-register p a {
+    color: #007bff;
+    text-decoration: none;
+}
+.container-register p a:hover {
+    text-decoration: underline;
+}
+
+.container-carrito{
+    padding-top: 12vh;
+    color: white;
+    text-decoration: none;
+}
+
+#conteItemsCarrusel {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.itemCarrusel {
+    height: 500px;
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.itemCarrusel.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tarjetaCarrusel {
+    height: 100%;
+}
+
+#tarjetaCarrusel-1 {
+    background: url('../img/carrusel.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%; 
+    height: 100vh;
+}
+
+#tarjetaCarrusel-2 {
+    background: url('../img/carrusel2.jpg');
+    background-position: center center;
+    background-size:auto;
+    background-attachment: fixed;
+    width: 100%; 
+    height: 100vh;
+}
+
+#tarjetaCarrusel-3 {
+    background: url('../img/carrusel3.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%; 
+    height: 100vh;
+}
+
+.flechasCarrusel {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    pointer-events: none;
+}
+
+.flechasCarrusel i {
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+#contePuntos {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+#contePuntos > a {
+    font-size: 1.4em;
+    font-style: normal;
+    margin: 0 5px;
+    cursor: pointer;
+    color: white;
+}
+
+#contePuntos > a:before {
+    content: "●";
+}
