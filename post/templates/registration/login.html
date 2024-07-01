@@ -6,44 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style_game.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-        <h1 class="logo mr-auto"><a href="{% url 'index' %}">ComicSharingan</a></h1>
-        <nav class="nav-menu d-none d-lg-block">
-            <ul class="nav">
-                <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
-                {% if user.is_authenticated %}
-                    {% if user.is_staff %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'agregar' %}">Agregar Juegos</a></li>
+    <header id="header" class="">
+
+        <div class="container d-flex align-items-center justify-content-between ">
+            <h1 class="logo"><a href="{% url 'index' %}">ComicSharingan</a></h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul class="d-flex align-items-center">
+                    <li class="active"><a href="{% url 'index' %}">Inicio</a></li>
+                    {% if user.is_authenticated %}
+                        {% if user.is_authenticated and user.is_staff %}
+                            <li><a href="{% url 'agregar' %}">Agregar cómics</a></li>
+                        {% endif %}
+                        <li>
+                            <a href="{% url 'ver_carrito' %}" class="btn btn-light cart-button position-relative">
+                                <img src="{% static 'img/carrito.png' %}" alt="Carrito de compras">
+                                <span class="cart-item-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {% if item.quantity > 0 %}
+                                        {{ item.quantity }}
+                                    {% else %}
+                                        0
+                                    {% endif %}
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-danger ms-3">Cerrar sesión</button>
+                            </form>
+                        </li>
+                        <li>
+                            <p class="username ms-3 mb-0">{{ user.username }}</p>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}" class="btn btn-outline-primary ms-3">Iniciar sesión</a></li>
+                        <li><a href="{% url 'register' %}" class="btn btn-outline-success ms-3">Registrarse</a></li>
                     {% endif %}
-                    <li class="nav-item">
-                        <button id="toggleCartBtn" class="btn btn-light cart-button">
-                            <img src="{% static 'img/carrito.png' %}" alt="Carrito de compras">
-                        </button>
-                    </li>
-                    <li class="nav-item">
-                        <form action="{% url 'logout' %}" method="post" class="form-inline">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-outline-danger">Cerrar sesión</button>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <p class="username nav-link">{{ user.username }}</p>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a href="{% url 'register' %}" class="btn btn-outline-success">Registrarse</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </nav>
-    </div>
-</header>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
 <div class="container-registration">
     {% if not user.is_authenticated %}
-    <div class="login-container">
+    <div class="login-container inises">
         <h2>Login</h2>
         <form method="post">
             {% csrf_token %}
@@ -56,6 +65,45 @@
     <h1 class="text-center text-white">¡Ya estás logueado! >:v</h1>
     {% endif %}
 </div>
+<footer class="footer">
+    <ul class="social-icon">
+      <li class="icon-elem">
+        <a href="https://www.youtube.com" class="icon">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+      </li>
+      <li class="icon-elem">
+        <a href="https://www.instagram.com" class="icon">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+      </li>
+      <li class="icon-elem">
+        <a href="https://twitter.com/home?lang=es" class="icon">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="icon-elem">
+        <a href="https://www.facebook.com/?locale=es_LA" class="icon">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+      </li>
+
+    </ul>
+    <ul class="menu">
+      <li class="menu-elem">
+        <a href="{% url  'index' %}" class="menu-icon"> Inicio </a>
+      </li>
+    </ul>
+    <p class="text">@2024 | Todos los derechos reservados</p>
+  </footer>
+  <script
+  type="module"
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

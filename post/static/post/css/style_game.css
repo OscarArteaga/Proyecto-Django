@@ -17,7 +17,7 @@ a:hover {
 }
 
 #header {
-    background: rgb(21, 15, 64);
+    background: rgb(52, 0, 119);
     padding: 10px 30px;
     display: flex;
     align-items: center;
@@ -158,8 +158,12 @@ a:hover {
     max-width: 1200px;
 }
 
+.container .carimg {
+    width: 100%;
+    height: 100%;
+}
+
 .card {
-    background-color: black;
     width: 140px;
     height: auto;
     border-radius: 8px;
@@ -205,13 +209,13 @@ a:hover {
 
 .card-price {
     font-size: 0.9em;
-    color: #ccc;
+    color: #990202;
     margin-bottom: 5px;
 }
 
 .card-description {
     font-size: 0.8em;
-    color: #777;
+    color: #3d0000;
     margin-bottom: 10px;
     flex-grow: 1;
 }
