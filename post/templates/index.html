@@ -85,7 +85,9 @@
             {% for post in posts %}
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card cart h-100" style="background-color:#d6b600">
-                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="card-img-top">
+                        <a href="{% url 'detallesProducto' post.pk %}">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                          </a>
                         <div class="card-body">
                             <h2 class="card-title">{{ post.title }}</h2>
                             <p class="card-price">${{ post.price }}</p>

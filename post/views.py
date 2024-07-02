@@ -71,8 +71,12 @@ def editar(request,pk):
     else:
         form = FormularioJuego(instance=post)
     return render(request,'editar.html',{'form': form})
-@admin_required
 
+def detalles(request,pk):
+    post = get_object_or_404(Post,pk=pk)
+    return render(request, 'detalleProducto.html', {'post': post})
+
+@admin_required
 def eliminar(request,pk):
     post = get_object_or_404(Post,pk=pk)
     if request.method == "POST":
