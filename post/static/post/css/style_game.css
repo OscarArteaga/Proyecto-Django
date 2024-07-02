@@ -108,6 +108,26 @@ a:hover {
     font-weight: bold;
 }
 
+@media (max-width: 768px) {
+    #header .nav-menu {
+        flex-direction:initial;
+        width: 100%;
+    }
+    #header .nav-menu ul li {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-toggler {
+        display: block;
+    }
+    body{
+        padding-top: 92px;
+    }
+
+}
+
+
+
 .btn-outline-danger,
 .btn-outline-primary,
 .btn-outline-success {
@@ -379,6 +399,7 @@ body h1 {
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     opacity: 0;
     transform: translateX(100%);
+    overflow: hidden;
 }
 
 .itemCarrusel.active {
@@ -388,6 +409,7 @@ body h1 {
 
 .tarjetaCarrusel {
     height: 100%;
+    width: 100%;
 }
 
 #tarjetaCarrusel-1 {
@@ -447,77 +469,29 @@ body h1 {
     content: "●";
 }
 
-@media (max-width: 1200px) {
-    .card-container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (max-width: 992px) {
-    .card-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
-    #header .logo {
-        font-size: 24px;
+    .itemCarrusel {
+        height: 100vh;
+        transform: translateX(100%);
     }
 
-    .cart-button {
-        width: 35px;
-        height: 35px;
+    .itemCarrusel.active {
+        transform: translateX(0);
     }
 
-    #header .nav-menu ul {
-        flex-direction: column;
-        align-items: flex-start;
+    .tarjetaCarrusel {
+        height: 100%;
     }
 
-    #header .nav-menu ul li {
-        margin: 5px 0;
+    .flechasCarrusel i {
+        font-size: 2.5rem;
     }
 
-    .card-container {
-        grid-template-columns: repeat(2, 1fr);
+    #contePuntos > a {
+        font-size: 1.2em;
     }
 }
 
-@media (max-width: 576px) {
-    #header .nav-menu ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #header .nav-menu ul li {
-        margin: 5px 0;
-    }
-
-    .container-registration,
-    .container-carrito {
-        padding-top: 80px;
-    }
-
-    .cart-button {
-        width: 30px;
-        height: 30px;
-    }
-
-    .card-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 400px) {
-    #header .logo {
-        font-size: 20px;
-    }
-
-    .cart-button {
-        width: 25px;
-        height: 25px;
-    }
-}
 
 .conteiner-detalles {
     width: 800px; 
