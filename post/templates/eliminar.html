@@ -23,13 +23,7 @@
                     <li>
                         <a href="{% url 'ver_carrito' %}" class="btn btn-light cart-button position-relative">
                             <img src="{% static 'img/carrito.png' %}" alt="Carrito de compras" class="carimg">
-                            <span class="cart-item-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                {% if item.quantity > 0 %}
-                                    {{ item.quantity }}
-                                {% else %}
-                                    0
-                                {% endif %}
-                            </span>
+                           
                         </a>
                     </li>
                     <li>

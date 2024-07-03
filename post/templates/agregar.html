@@ -23,13 +23,6 @@
                     <li>
                         <a href="{% url 'ver_carrito' %}" class="btn btn-light cart-button position-relative">
                             <img src="{% static 'img/carrito.png' %}" alt="Carrito de compras" class="carimg">
-                            <span class="cart-item-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                {% if item.quantity > 0 %}
-                                    {{ item.quantity }}
-                                {% else %}
-                                    0
-                                {% endif %}
-                            </span>
                         </a>
                     </li>
                     <li>
@@ -52,7 +45,7 @@
     <div class="container-add-comic d-flex align-items-center justify-content-center">
         <div class="add-comic-container inises">
             <h2 class="text-center mb-4">Agregar Cómic</h2>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" id="editarComics">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary w-100">Guardar</button>

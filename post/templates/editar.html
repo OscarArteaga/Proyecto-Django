@@ -51,7 +51,7 @@
 </header>
     <div class="container mt-5 inises">
         <h2 class="text-center mb-4">Editar Cómic</h2>
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" id="editarComics">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn btn-primary w-100">Guardar</button>

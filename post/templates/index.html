@@ -24,13 +24,7 @@
                         <li>
                             <a href="{% url 'ver_carrito' %}" class="btn btn-light cart-button position-relative">
                                 <img src="{% static 'img/carrito.png' %}" alt="Carrito de compras" class="carimg">
-                                <span class="cart-item-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    {% if item.quantity > 0 %}
-                                        {{ item.quantity }}
-                                    {% else %}
-                                        0
-                                    {% endif %}
-                                </span>
+                              
                             </a>
                         </li>
                         <li>
@@ -79,9 +73,9 @@
     </div>
     <main class="container my-5">
         <h1 class="text-center mb-5">Nuestro catálogo de comics</h1>
-        <div class="card-container ">
+        <div class="card-container row mx-auto">
             {% for post in posts %}
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center align-items-center">
                     <div class="card cart h-100" style="background-color:#d6b600">
                         <a href="{% url 'detallesProducto' post.pk %}">
                             <img src="{{ post.image.url }}" alt="{{ post.title }}">
@@ -91,7 +85,7 @@
                             <p class="card-price">${{ post.price }}</p>
                             <div class="card-actions">
                                 {% if user.is_authenticated and user.is_staff %}
-                                    <a href="{% url 'editar' post.pk %}" class="btn btn-primary">Editar</a>
+                                    <a href="{% url 'editar' post.pk %}" class="btn btn-outline-primary">Editar</a>
                                     <a href="{% url 'eliminar' post.pk %}" class="btn btn-danger">Eliminar</a>
                                 {% endif %}
                                 {% if user.is_authenticated %}
