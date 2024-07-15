@@ -19,7 +19,7 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.urls import path,include
 from post.api.router import router_posts
-from post.views import index , agregar, editar, eliminar , register , user_login , eliminar_del_carrito , agregar_al_carrito , ver_carrito , detalles
+from post.views import index , agregar, editar, eliminar , register , user_login , eliminar_del_carrito , agregar_al_carrito , ver_carrito , detalles,  checkout, order_success
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +36,8 @@ urlpatterns = [
     path('ver_carrito/', ver_carrito, name='ver_carrito'),
     path('producto/<int:pk>/',detalles,name='detallesProducto'),
     path('eliminar_del_carrito/<int:item_id>/', eliminar_del_carrito, name='eliminar_del_carrito'),
+    path('checkout/', checkout, name='checkout'),
+    path('order_success/', order_success, name='order_success'),
 ]
 
 if settings.DEBUG:

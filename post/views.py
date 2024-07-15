@@ -112,3 +112,29 @@ def eliminar_del_carrito(request, item_id):
     cart_item = get_object_or_404(CartItem, id=item_id)
     cart_item.delete()
     return redirect('ver_carrito')
+
+@login_required
+def checkout(request):
+    user = request.user
+    cart = Cart.objects.filter(user=user).first()
+
+    if not cart or cart.items.count() == 0:
+        return redirect('ver_carrito')  
+
+    total_amount = cart.items.aggregate(total=Sum('product__price'))['total']
+
+    order = Order.objects.create(user=user, total_amount=total_amount)
+
+    for cart_item in cart.items.all():
+        OrderItem.objects.create(
+            order=order,
+            product=cart_item.product,
+            quantity=cart_item.quantity,
+            price=cart_item.product.price
+        )
+    cart.items.all().delete()
+  
+    return redirect('order_success')  
+
+def order_success(request):
+    return render(request, 'order_success.html')

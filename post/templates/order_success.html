@@ -42,45 +42,9 @@
             </nav>
         </div>
     </header>
-    <div class="container mt-5 inises">
-        <h2 class="mb-4">Carrito de Compras</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Producto</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in items %}
-                <tr>
-                    <td>{{ item.product.title }}</td>
-                    <td>${{ item.product.price }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>
-                        <form action="{% url 'eliminar_del_carrito' item.id %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3"><strong>Total:</strong></td>
-                    <td><strong>${{ total }}</strong></td>
-                </tr>
-            </tfoot>
-        </table>
-        <a href="{% url 'index' %}" class="btn btn-secondary btn-ses">Volver al catálogo</a>
-        <form action="{% url 'checkout' %}" method="post">
-          {% csrf_token %}
-          <button type="submit">Confirmar Compra</button>
-      </form>
-    </div>
+    <h2>¡Gracias por tu compra!</h2>
+
+    <p>Tu orden ha sido procesada exitosamente. Pronto recibirás más detalles por correo electrónico.</p>
     <footer class="footer">
         <ul class="social-icon">
           <li class="icon-elem">
