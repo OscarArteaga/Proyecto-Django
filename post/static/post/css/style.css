@@ -482,6 +482,10 @@ header {
   border-radius: 10px;
   min-height: calc(100vh - 10rem - 50px);
 }
+.titlebol {
+  text-align: center;
+  color: rgb(4, 63, 97);
+}
 
 .inises-box {
   padding-top: 5rem;

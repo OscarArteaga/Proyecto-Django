@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
 class FormularioJuego(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title','content','image','price']
+        fields = ['title','content','image','price', 'stock']
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)

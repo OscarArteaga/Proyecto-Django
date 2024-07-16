@@ -123,18 +123,42 @@ def checkout(request):
 
     total_amount = cart.items.aggregate(total=Sum('product__price'))['total']
 
+
+    for cart_item in cart.items.all():
+        product = cart_item.product
+        if product.stock < cart_item.quantity:
+            return redirect('ver_carrito')
+
     order = Order.objects.create(user=user, total_amount=total_amount)
 
     for cart_item in cart.items.all():
-        OrderItem.objects.create(
-            order=order,
-            product=cart_item.product,
-            quantity=cart_item.quantity,
-            price=cart_item.product.price
-        )
+        product = cart_item.product
+        if product.stock >= cart_item.quantity:
+            product.stock -= cart_item.quantity
+            product.save()
+            OrderItem.objects.create(
+                order=order,
+                product=cart_item.product,
+                quantity=cart_item.quantity,
+                price=cart_item.product.price
+            )
+        else:
+            return redirect('ver_carrito')
+        
     cart.items.all().delete()
+
+    request.session['order_id'] = order.id
   
     return redirect('order_success')  
 
 def order_success(request):
     return render(request, 'order_success.html')
+
+def boleta(request):
+    order_id = request.session.get('order_id')
+    if not order_id:
+        return redirect('home')
+    
+    order = get_object_or_404(Order, id=order_id)
+    order_items = order.items.all()
+    return render(request, 'boleta.html', {'order': order, 'order_items': order_items})

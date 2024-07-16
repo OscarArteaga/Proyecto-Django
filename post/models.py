@@ -12,6 +12,7 @@ class Post(models.Model):
     content = models.TextField()
     image = models.ImageField(blank=True,null=True,upload_to='fotos/')
     price = models.IntegerField(default=0)
+    stock = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title  

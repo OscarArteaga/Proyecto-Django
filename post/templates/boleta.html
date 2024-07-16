@@ -43,12 +43,21 @@
         </div>
     </header>
     <div class="container mt-5 inises">
-      <h2>¡Gracias por tu compra!</h2>
-
-      <p>Tu orden ha sido procesada exitosamente. Pronto recibirás más detalles por correo electrónico.</p>
-      <li><a href="{% url 'index' %}" class="btn btn-secondary btn-ses">Volver al inicio</a></li>
-
-      <li><a href="{% url 'boleta' %}" class="btn btn-secondary btn-ses">Ver boleta</a></li>
+      <h2>Boleta</h2>
+      <h4>Order ID: {{ order.id }}</h4>
+      <h4>User: {{ order.user.username }}</h4>
+      <h4>Total Amount: {{ order.total_amount }}</h4>
+      <h3>Productos comprados</h3>
+      <ul>
+          {% for item in order_items %}
+              <li>
+                  <h3>{{ item.product.title }}</h3>
+                  <h4>Quantity: {{ item.quantity }}</h4>
+                  <h4>Price: {{ item.price }}</h4>
+              </li>
+          {% endfor %}
+      </ul>
+      <a href="{% url 'index' %}" class="btn btn-secondary btn-ses">Volver al catálogo</a>
   </div>
     <footer class="footer">
         <ul class="social-icon">

@@ -78,7 +78,7 @@
         <a href="{% url 'index' %}" class="btn btn-secondary btn-ses">Volver al catálogo</a>
         <form action="{% url 'checkout' %}" method="post">
           {% csrf_token %}
-          <button type="submit">Confirmar Compra</button>
+          <button type="submit" class="btn btn-secondary btn-ses">Confirmar Compra</button>
       </form>
     </div>
     <footer class="footer">
